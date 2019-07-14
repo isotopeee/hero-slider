@@ -1,5 +1,5 @@
 export const isMobile = (): boolean => {
-  if (/Mobi|Android/i.test(navigator.userAgent)) {
+  if (navigator !== 'undefined' && /Mobi|Android/i.test(navigator.userAgent)) {
     return true
   }
   return false
