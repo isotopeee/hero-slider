@@ -457,6 +457,11 @@ const heroSlider = React.memo((props: ISliderProps) => {
      * Calculates the initial dimensions of the slider and adds event listener.
      */
     setSliderDimensionsHandler()
+
+    // tslint:disable-next-line: strict-type-predicates
+    if (typeof window === 'undefined') {
+      return
+    }
     window.addEventListener('resize', setSliderDimensions as EventListenerOrEventListenerObject)
     if (settings.shouldSlideOnArrowKeypress) window.addEventListener('keydown', onArrowKeypressHandler)
     /**
@@ -467,6 +472,11 @@ const heroSlider = React.memo((props: ISliderProps) => {
       clearTimeout(slidingTimeout && +slidingTimeout)
       clearTimeout(autoplayHandlerTimeout && +autoplayHandlerTimeout)
       autoplayInstance.stop()
+
+      // tslint:disable-next-line: strict-type-predicates
+      if (typeof window === 'undefined') {
+        return
+      }
       window.removeEventListener('resize', setSliderDimensions as EventListenerOrEventListenerObject)
       if (settings.shouldSlideOnArrowKeypress) window.removeEventListener('keydown', onArrowKeypressHandler)
     }

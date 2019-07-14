@@ -31,6 +31,9 @@ const mask = (props: IMaskProps) => {
 
   const isLoaded = className === classes.Loaded
 
+  // tslint:disable-next-line: strict-type-predicates
+  const offset = typeof window !== 'undefined' ? window.innerHeight : 0
+
   return (
     <div
       className={[
@@ -38,7 +41,7 @@ const mask = (props: IMaskProps) => {
         (props.isActive && props.isDoneSliding) ? classes.Active : classes.Inactive
       ].join(' ')}>
       <LazyLoad
-        offset={window.innerHeight}
+        offset={offset}
         debounce={false}
         height='100%'>
         <img

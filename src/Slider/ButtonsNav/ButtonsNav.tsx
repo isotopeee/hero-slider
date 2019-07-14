@@ -21,7 +21,8 @@ const SliderNav = (props: IButtonsNavProps) => {
     justifyContent,
     alignItems,
     navDescriptions,
-    sliderWidth = window.innerWidth,
+    // tslint:disable-next-line: strict-type-predicates
+    sliderWidth = typeof window !== 'undefined' ? window.innerWidth : 0,
     mobileThreshold = 1024,
     isNullAfterThreshold,
     extraButton,

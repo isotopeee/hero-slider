@@ -12,7 +12,8 @@ import LazyLoad from 'react-lazyload'
 const background = (props: IBackgroundProps) => {
   const {
     shouldLazyLoad = true,
-    lazyLoadingOffset = window.innerHeight,
+    // tslint:disable-next-line: strict-type-predicates
+    lazyLoadingOffset = typeof window !== 'undefined' ? window.innerHeight : 0,
     width,
     height,
     onLoad,
